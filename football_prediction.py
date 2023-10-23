@@ -38,7 +38,7 @@ def main():
 
 
         output = predict(user_inputs)
-        st.success(f"The player's overall rating is {output[0]}")
+        st.success(f"The player's overall rating is {round(output[0], 0)}")
 
 
 
