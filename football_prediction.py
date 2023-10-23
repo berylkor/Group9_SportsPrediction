@@ -6,7 +6,7 @@ import numpy as np
 
 # Opens the deployed model
 model = pickle.load(open('deployed_model.pkl', 'rb'))
-scaling = pickle.load(open('scalar_model.pkl', 'rb'))
+scaling = pickle.load(open('scaler_model.pkl', 'rb'))
 
 def predict(user_inputs):
     st.title('Player Rating Sports Prediction')
