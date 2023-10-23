@@ -14,8 +14,10 @@ def predict(user_inputs):
     user_inputs = np.array(user_inputs)
 
     makeprediction = model.predict([user_inputs])
+    prediction = model.predict(scaling.transform(np.array([user_inputs])))
+    confidence_score = np.mean(np.abs(prediction - makeprediction))
 
-    return makeprediction
+    return makeprediction, confidence_score
 
     # Features
 def main():
@@ -37,8 +39,9 @@ def main():
         user_inputs = [gk, lcb, cf, lm, rm, potential, value_eur, wage_eur, release_clause_eur, movement_reactions, age]
 
 
-        output = predict(user_inputs)
+        output, confidence_score = predict(user_inputs)
         st.success(f"The player's overall rating is {round(output[0], 0)}")
+        st.write(f"Mean absolute error of the model is {round(confidence_score, 3)} ")
 
 
 
