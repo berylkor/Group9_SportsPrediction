@@ -13,8 +13,6 @@ def predict(user_inputs):
 
     user_inputs = np.array(user_inputs)
 
-   # scaled_inputs = scaling.transform([user_inputs])
-
     makeprediction = model.predict([user_inputs])
 
     return makeprediction
@@ -43,15 +41,7 @@ def main():
         st.success(f"The player's overall rating is {output[0]}")
 
 
-        #this is the  code that we will use for prediction
-    # if st.button('Predict', key='predict_button'):
-    #     makeprediction = model.predict([[gk,lcb,cf,lm,rm,potential,value_eur,wage_eur,release_clause_eur,movement_reactions,age]])
-    #     output=round(makeprediction[0],2)
-    #     st.success('The player overall performance is {}'.format(output))
-
 
 if __name__ == '__main__':
     main()
 
-
-#go to terminal and type (streamlit run football_prediction.py)
